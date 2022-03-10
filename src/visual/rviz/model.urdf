@@ -1,0 +1,60 @@
+<?xml version = "1.0"?>
+
+<!-- ############################################################################
+     ########################## ARAV Simulator - RVIZ ###########################
+     ############################################################################
+     #################### Author : Alberto Ceballos Gonzalez ####################
+     ######## E-mail : alberto.ceballos-gonzalez@student.isae-supaero.fr ########
+     ######### (c) Copyright 2022. Alberto Ceballos. All Rights Reserved ########
+     ############################################################################ -->
+
+<robot name = "arav" xmlns:xacro = "http://www.ros.org/wiki/xacro">
+
+  <!-- Base frame Link -->
+  <link name = "base_frame"/>
+
+  <!-- Robot frame Link -->
+  <link name = "robot_frame">
+    <inertial>
+      <origin xyz = "0 0 0" rpy = "0 0 0"/>
+      <mass value = "1.5"/>
+      <inertia
+        ixx = "0.029125"
+        ixy = "0.0"
+        ixz = "0.0"
+        iyy = "0.029125"
+        iyz = "0.0"
+        izz = "0.029125"
+      />
+    </inertial>
+    <collision>
+      <origin xyz = "0 0 0" rpy = "0 0 0"/>
+      <geometry>
+        <box size = "0.47 0.47 0.11"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz = "0 0 0.15" rpy = "0 0 0"/>
+      <geometry>
+        <mesh filename = "package://visual/mesh/arav.dae" scale = "1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <!-- Robot frame joint -->
+  <joint name = "robot_frame_joint" type = "fixed">
+    <parent link = "base_frame"/>
+		<child link = "robot_frame"/>
+		<axis xyz = "0 0 0"/>
+		<origin xyz = "0 0 0" rpy = "0 0 0"/>
+  </joint>
+
+</robot>
+
+<!-- ############################################################################
+     ########################## ARAV Simulator - RVIZ ###########################
+     ############################################################################
+     #################### Author : Alberto Ceballos Gonzalez ####################
+     ######## E-mail : alberto.ceballos-gonzalez@student.isae-supaero.fr ########
+     ######### (c) Copyright 2022. Alberto Ceballos. All Rights Reserved ########
+     ############################################################################ -->

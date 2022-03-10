@@ -1,0 +1,31 @@
+<?xml version = "1.0"?>
+
+<!-- ############################################################################
+     ########################### Rviz - ARAV Simulator ##########################
+     ############################################################################
+     #################### Author : Alberto Ceballos Gonzalez ####################
+     ######## E-mail : alberto.ceballos-gonzalez@student.isae-supaero.fr ########
+     ######### (c) Copyright 2022. Alberto Ceballos. All Rights Reserved ########
+     ############################################################################ -->
+
+<launch>
+
+	<group ns = "rviz">
+		<param name = "robot_description" command = "$(find xacro)/xacro $(find visual)/rviz/model.urdf"/>
+		<node name = "robot_state_publisher" pkg = "robot_state_publisher" type = "robot_state_publisher">
+			<param name = "robot_description" command = "$(find xacro)/xacro $(find visual)/rviz/model.urdf"/>
+		</node>
+		<node name = "rviz" pkg = "rviz" type = "rviz" args = "-d $(find visual)/rviz/config.rviz"/>
+		<node name = "tf2pub" pkg = "visual" type = "tf2pub.py" output = "screen"/>
+		<node name = "pubPose" pkg = "visual" type = "pubPose.py" output = "screen"/>
+	</group>
+
+</launch>
+
+<!-- ############################################################################
+     ########################### Rviz - ARAV Simulator ##########################
+     ############################################################################
+     #################### Author : Alberto Ceballos Gonzalez ####################
+     ######## E-mail : alberto.ceballos-gonzalez@student.isae-supaero.fr ########
+     ######### (c) Copyright 2022. Alberto Ceballos. All Rights Reserved ########
+     ############################################################################ -->

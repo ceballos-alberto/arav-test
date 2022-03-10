@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<!-- #######################################################################
+     ############## Environment Perception Module (EPM) - ARAV #############
+     #######################################################################
+     ################## Author : Alberto Ceballos Gonzalez #################
+     ###### E-mail  alberto.ceballos-gonzalez@student.isae-supaero.fr ######
+     ###### (c) Copyright 2022. Alberto Ceballos. All Rights Reserved ######
+     ####################################################################### -->
+
+<launch>
+  <include file="$(find visual)/launch/rviz.launch"/>
+  <include file="$(find octomap_server)/launch/launch.xml"/>
+  <include file="$(find path_planning)/launch/launch.xml"/>
+  <include file="$(find path_selector)/launch/launch.xml"/>
+  <node name="depth" pkg="perception" type="depth" output="screen"
+  args="$(find perception)"/>
+  <node name="pub_images" pkg="perception" type="publish.py" output="screen"
+  args="$(find perception)"/>
+</launch>
+
+<!-- #######################################################################
+     ############## Environment Perception Module (EPM) - ARAV #############
+     #######################################################################
+     ################## Author : Alberto Ceballos Gonzalez #################
+     ###### E-mail  alberto.ceballos-gonzalez@student.isae-supaero.fr ######
+     ###### (c) Copyright 2022. Alberto Ceballos. All Rights Reserved ######
+     ####################################################################### -->
