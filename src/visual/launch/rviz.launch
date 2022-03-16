@@ -18,6 +18,7 @@
 		<node name = "rviz" pkg = "rviz" type = "rviz" args = "-d $(find visual)/rviz/config.rviz"/>
 		<node name = "tf2pub" pkg = "visual" type = "tf2pub.py" output = "screen"/>
 		<node name = "pubPose" pkg = "visual" type = "pubPose.py" output = "screen"/>
+		<node name = "optiTrans" pkg = "visual" type = "optiTrans.py" output = "screen"/>
 	</group>
 
 </launch>
