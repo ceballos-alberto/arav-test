@@ -172,7 +172,7 @@ void plan(bool ground)
 
     // Create the goal state (goal position)
 	ob::ScopedState<ob::SE3StateSpace> goal(space);
-	goal->setXYZ(11,0,0.1);
+	goal->setXYZ(4.0,0,0.1);
 	goal->as<ob::SO3StateSpace::StateType>(1)->setIdentity();
 
     // Create problem instance
@@ -244,7 +244,7 @@ void plan(bool ground)
 		marker.id = 0;
 		marker.type = visualization_msgs::Marker::LINE_STRIP;
 		marker.action = visualization_msgs::Marker::ADD;
-		marker.scale.x = 0.05; // Lines only need x scale (width)
+		marker.scale.x = 0.03; // Lines only need x scale (width)
 		marker.color.a = 1.0;
 		marker.color.r = 0.0;
 		marker.color.g = 0.0;
