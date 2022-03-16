@@ -5,3 +5,4 @@ src/CMakeLists.txt
 depth
 px4pub
 path_planning_node
+.vscode
