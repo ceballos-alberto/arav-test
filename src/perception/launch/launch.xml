@@ -13,6 +13,7 @@
   <include file="$(find octomap_server)/launch/launch.xml"/>
   <include file="$(find path_planning)/launch/launch.xml"/>
   <include file="$(find path_selector)/launch/launch.xml"/>
+  <include file="$(find control)/launch/launch.xml"/>
   <node name="depth" pkg="perception" type="depth" output="screen"
   args="$(find perception)"/>
   <node name="pub_images" pkg="perception" type="publish.py" output="screen"
