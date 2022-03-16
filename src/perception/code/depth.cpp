@@ -8,6 +8,7 @@
 
 /* Import required libraries */
 #include <iostream>
+#include <cstdlib>
 #include <opencv2/opencv.hpp>
 #include <opencv2/ximgproc/disparity_filter.hpp>
 #include <pcl/point_types.h>
@@ -214,9 +215,15 @@ int main(int argc, char** argv) {
     point = point_list[point_list.size()-1];
     cvPoint = cvCloud.at<cv::Point3f>(point[0], point[1]);
     pcl::PointXYZ pclPoint;
-    pclPoint.x = -cvPoint.z;
+    pclPoint.x = 2.0;
     pclPoint.y = cvPoint.x - 0.1;
     pclPoint.z = cvPoint.y;
+    if (abs(pclPoint.z) > 0.4) {
+      pclPoint.y = pclPoint.y + 100.0;
+    }
+    if (abs(pclPoint.y) > 0.5) {
+      pclPoint.y = pclPoint.y + 100.0;
+    }
     cloud.points.push_back(pclPoint);
     point_list.pop_back();
   }
