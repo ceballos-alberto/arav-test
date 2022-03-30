@@ -1,0 +1,28 @@
+export http_proxy=http://10.255.100.224:3128 && export https_proxy=$http_proxy
+
+
+laptop:
+export ROS_HOSTNAME=$(hostname).local
+
+raspberry:
+export ROS_HOSTNAME=$(hostname).local
+export ROS_MASTER_URI=http://pop-os.local:11311
+
+
+laptop:
+roslaunch vrpn_client_ros sample.launch server:=10.255.100.11
+roslaunch control launch.xml
+rosrun control publish.py
+
+
+rpi:
+roslaunch low_level_ground_control launch.xml
+
+(air)
+roslaunch aircontrol launch.xml
+
+
+TODO AIRCONTROL??
+
+roslaunch mavros px4.launch fcu_url:=/dev/ttyAMA0:921600
+rosrun mavros mavsafety arm
